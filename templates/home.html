@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/hmac-sha256.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/enc-base64.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="https://rc-epay.esewa.com.np/api/epay/main/v2/form" method="POST">
+        <input type="text" id="amount" name="amount" value="{{amount}}" required hidden>
+        <input type="text" id="tax_amount" name="tax_amount" value="{{tax_amount}}" required hidden>
+        <input type="text" id="total_amount" name="total_amount" value="{{total_amount}}" required hidden>
+        <input type="text" id="transaction_uuid" name="transaction_uuid" value="{{transaction_uuid}}" hidden>
+        <input type="text" id="product_code" name="product_code" value="{{product_code}}" required hidden>
+        <input type="text" id="product_service_charge" name="product_service_charge" value="0" required hidden>
+        <input type="text" id="product_delivery_charge" name="product_delivery_charge" value="0" required hidden>
+        <input type="text" id="success_url" name="success_url" value="http://127.0.0.1:8000/success" required hidden>
+        <input type="text" id="failure_url" name="failure_url" value="https://google.com" required hidden>
+        <input type="text" id="signed_field_names" name="signed_field_names"
+            value="total_amount,transaction_uuid,product_code" required hidden>
+        <input type="text" id="signature" name="signature" required value="{{signature}}" hidden>
+        <input value="pay with esewa" type="submit">
+    </form>
+
+
+
+    <!-- <script>
+        // Get form values
+        var totalAmount = document.getElementById("total_amount").value;
+        var transactionUuid = document.getElementById("transaction_uuid").value;
+        var productCode = document.getElementById("product_code").value;
+    
+        // Concatenate the values
+        var message = totalAmount + "," + transactionUuid + "," + productCode;
+        // document.write(message)
+    
+        // Get the secret key
+        var secretKey = "8gBm/:&EnhH.1/q";
+    
+        // Generate the HMAC-SHA256 signature
+        var hash = CryptoJS.HmacSHA256(message, secretKey);
+        var hashInBase64 = CryptoJS.enc.Base64.stringify(hash);
+        document.write(hashInBase64)
+    
+        // Set the signature value in the form
+        // document.getElementById("signature").value = hashInBase64;
+    </script> -->
+
+
+
+
+</body>
+
+</html>
