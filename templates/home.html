@@ -28,7 +28,14 @@
         <input type="text" id="signature" name="signature" required value="{{signature}}" hidden>
         <input value="pay with esewa" type="submit">
     </form>
-
+<hr>
+    <form action="{% url 'myapp:khalti-payment' %}" method="POST">
+        {% csrf_token %}
+        <input type="text" id="" name="purchase_order_id" value="{{uid}}" required hidden>
+        <input type="text" id="" name="amount" value="1000" required hidden>
+        <input type="text" id="" name="return_url" value="{{return_url}}" required hidden>
+        <input value="pay with khalti" type="submit">
+    </form>
 
 
     <!-- <script>

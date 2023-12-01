@@ -1,9 +1,13 @@
 from django.urls import path
 from .views import *
-# from .views import AsyncView
+
+
+app_name = 'myapp'
 
 urlpatterns = [
-    path('',home),
-    path('verify-payment/',AsyncView.as_view()),
-    path('success/',esewaPaymentVerification),
+    path('',home, name="home"),
+    # path('esewa-payment/',AsyncView.as_view()),
+    # path('verify-esewa-payment/',esewaPaymentVerification, name="verify-esewa-payment"),
+    path('khalti-payment/',khaltipayment, name="khalti-payment"),
+    path('verify-khalti-payment/',khaltiPaymentVerification, name="verify-khalti-payment"),
 ]
